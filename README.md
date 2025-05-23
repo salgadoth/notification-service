@@ -11,14 +11,14 @@ The `notification-queue` repository is a microservice designed to process user n
 ## Technologies Used
 - Java
 - Spring Boot
-- Kafka
+- Kafka or RabbitMQ
 - MongoDB
 
 ## Setup and Installation
 
 ### Prerequisites
 - Java 11 or higher
-- Apache Kafka
+- Apache Kafka or RabbitMQ
 - MongoDB
 
 ### Clone the Repository
@@ -28,9 +28,17 @@ cd notification-queue
 ```
 
 ### Configure the Application
-- Update the application.properties file with your Kafka and MongoDB configurations.
+- Update the application.properties file with your Kafka (or RabbitMQ) and MongoDB configurations.
 ```properties
+#For Kafka
 spring.kafka.bootstrap-servers=your-kafka-server:9092
+
+#For RabbitMQ
+spring.rabbitmq.host=your-rabbitmq-server:5472
+spring.rabbitmq.user=your-rabbitmq-server-user
+spring.rabbitmq.password=your-rabbitmq-server-password
+
+#MongoDB
 spring.data.mongodb.uri=mongodb://localhost:27017/yourdatabase
 ```
 
