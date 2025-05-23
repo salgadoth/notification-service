@@ -11,9 +11,5 @@ public class RabbitMessage {
     private Message payload;
 }
 
-@Getter
-@Setter
-class CorrelationId {
-    private String id;
-}
+
 

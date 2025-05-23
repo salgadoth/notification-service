@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -12,6 +13,9 @@ import java.util.concurrent.TimeoutException;
 
 public class RabbitService implements AutoCloseable {
     private final Logger logger = LoggerFactory.getLogger(RabbitService.class);
+
+    @Value("")
+    private final String RABBITMQ_ADDR;
 
     private final Connection connection;
     private final ObjectMapper objectMapper = new ObjectMapper();
