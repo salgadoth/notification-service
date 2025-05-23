@@ -14,17 +14,21 @@ import java.util.concurrent.TimeoutException;
 public class RabbitService implements AutoCloseable {
     private final Logger logger = LoggerFactory.getLogger(RabbitService.class);
 
-    @Value("")
-    private final String RABBITMQ_ADDR;
+    @Value("${spring.rabbitmq.host}")
+    private String RABBITMQ_ADDR;
+    @Value("${spring.rabbitmq.username}")
+    private String RABBITMQ_USERNAME;
+    @Value("${spring.rabbitmq.password}")
+    private String RABBITMQ_PASSWORD;
 
     private final Connection connection;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     public RabbitService() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
-        factory.setUsername("guest");
-        factory.setPassword("guest");
+        factory.setHost(RABBITMQ_ADDR);
+        factory.setUsername(RABBITMQ_USERNAME);
+        factory.setPassword(RABBITMQ_PASSWORD);
         factory.setRequestedHeartbeat(30);
         connection = factory.newConnection();
     }
