@@ -2,7 +2,6 @@ package br.com.tsg.notification_application;
 
 import br.com.tsg.common_rabbit.RabbitConsumerWorker;
 import br.com.tsg.common_rabbit.RabbitService;
-import br.com.tsg.notification_application.collections.Message;
 import br.com.tsg.notification_application.collections.RabbitMessage;
 import br.com.tsg.notification_application.exceptions.EmailSendingException;
 import br.com.tsg.notification_application.services.MessageService;
@@ -11,9 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
 
 @SpringBootApplication
 public class EmailServiceApplication {

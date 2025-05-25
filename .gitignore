@@ -3,3 +3,4 @@ target
 tokens
 .idea
 application.yml
+**/META-INF/MANIFEST.MF

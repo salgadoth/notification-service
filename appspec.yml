@@ -1,0 +1,25 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /deployments/notification-service
+
+hooks:
+  BeforeInstall:
+    - location: scripts/before_install.sh
+      timeout: 300
+      runas: admin
+
+    - location: scripts/retrieve_envs.sh
+      timeout: 180
+      runas: admin
+
+  Install:
+    - location: scripts/install.sh
+      timeout: 300
+      runas: admin
+
+  ApplicationStart:
+    - location: scripts/start_server.sh
+      timeout: 300
+      runas: admin
