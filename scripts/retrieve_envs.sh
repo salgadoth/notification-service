@@ -5,7 +5,7 @@ set -e
 OUTPUT_FILE="email-service/src/main/resources/application.yml"
 
 # Create file if doesn't exists
-cd /deployments/notification-service
+#cd /deployments/notification-service
 touch "$OUTPUT_FILE"
 chmod 600 "$OUTPUT_FILE"
 chown "$USER":"$USER" "$OUTPUT_FILE"
