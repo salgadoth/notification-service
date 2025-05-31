@@ -2,7 +2,7 @@
 set -e
 
 # Define file path
-OUTPUT_FILE="email-service/src/main/resources/application.yml"
+OUTPUT_FILE="../application.yml"
 
 # Create file if doesn't exists
 #cd /deployments/notification-service
