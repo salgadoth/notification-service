@@ -1,0 +1,22 @@
+### This is an example file only,
+# when implementating, fill in with real values
+###
+spring:
+  rabbitmq:
+    username: RABBITMQ_USERNAME
+    password: RABBITMQ_PASSWORD
+    host: RABBITMQ_SERVER_ADDRESS
+
+  data:
+    mongodb:
+      password: MONGODB_PASSWORD
+      username: MONGODB_USERNAME
+      uri: mongodb+srv://[MONGODB_CLUSTER_CONNECTION_URI]
+
+google:
+  gmail:
+    # Google package will use this path to store the credentials file, which is
+    # generated after authenticating your gmail account, that happens when sending an email for the first time.
+    credentials-file-path: 'PATH TO THE CREDENTIALS FILE.'
+    # Google package will use this email address to authenticate into Gmail API, allowing to read and write emails.
+    sender-email: 'tsg.lab00@gmail.com'
