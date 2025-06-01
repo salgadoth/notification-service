@@ -6,9 +6,9 @@ set -e
 
 # Create file if doesn't exists
 #cd /deployments/notification-service
-sudo touch "../application.yml"
-sudo chmod 600 "../application.yml"
-sudo chown "$USER":"$USER" "../application.yml"
+sudo touch "./email-service/src/main/resources/application.yml"
+sudo chmod 600 "./email-service/src/main/resources/application.yml"
+sudo chown "$USER":"$USER" "./email-service/src/main/resources/application.yml"
 
 # Retrieve all parameters from SSM parameter store by path
 PARAMS=$(aws ssm get-parameters-by-path --path "/notification_service/env" --recursive --with-decryption --query "Parameters[*].{Name:Name, Value:Value}" --output json)
@@ -33,6 +33,6 @@ generate_yml() {
 }
 
 # Write to file
-generate_yml > "../application.yml"
+generate_yml > "./email-service/src/main/resources/application.yml"
 
 echo "application.yml successfully generated."
