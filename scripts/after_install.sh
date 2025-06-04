@@ -17,6 +17,6 @@ echo "🚀 Packaging app for deployment..."
 mv "$APP_YML" "$APP_YML_DIR"
 
 echo "📦 Building application JAR with Maven..."
-mvn clean package -Dskiptests
+sudo env "PATH=$PATH" mvn clean package -Dskiptests
 
 echo "✅ Service packaged successfully!"
