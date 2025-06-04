@@ -14,8 +14,8 @@ hooks:
       timeout: 180
       runas: admin
 
-  Install:
-    - location: scripts/install.sh
+  AfterInstall:
+    - location: scripts/after_install.sh
       timeout: 300
       runas: admin
 
