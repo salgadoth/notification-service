@@ -4,4 +4,4 @@
 echo "Stopping existing notification-aservice if already running..."
 pm2 stop notification-service || true
 echo "Removing existing notification-service files..."
-sudo rm -rf /deployments/notification-service/*
+rm -rf /deployments/notification-service/*
