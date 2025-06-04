@@ -9,7 +9,7 @@ APP_YML_DIR="./email-service/src/main/resources/"
 echo "🛑 Altering permissions of deployment dir for the current user..."
 
 # Very careful when altering this, could potentially destroy whole instance.
-sudo chown -R "$USER":"$USER" "./*"
+sudo chown -R "$USER":"$USER" "$DEPLOY_DIR"
 cd "$DEPLOY_DIR"
 
 echo "🚀 Packaging app for deployment..."
