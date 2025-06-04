@@ -6,9 +6,9 @@ OUTPUT_FILE="/deployments/notification-service/application.yml"
 
 # Create file if doesn't exists
 #cd /deployments/notification-service
-touch "$OUTPUT_FILE"
-chmod 600 "$OUTPUT_FILE"
-chown "$USER":"$USER" "$OUTPUT_FILE"
+sudo touch "$OUTPUT_FILE"
+sudo chmod 600 "$OUTPUT_FILE"
+sudo chown "$USER":"$USER" "$OUTPUT_FILE"
 
 # Retrieve all parameters from SSM parameter store by path
 PARAMS=$(aws ssm get-parameters-by-path --path "/notification_service/env" --recursive --with-decryption --query "Parameters[*].{Name:Name, Value:Value}" --output json)
