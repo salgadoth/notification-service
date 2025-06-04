@@ -17,6 +17,6 @@ echo "🚀 Packaging app for deployment..."
 sudo cp "$APP_YML" "$APP_YML_DIR"
 
 echo "📦 Building application JAR with Maven..."
-mvn clean package -Dskiptests
+/home/admin/.sdkman/candidates/maven/3.9.9/bin/mvn clean package -Dskiptests
 
 echo "✅ Service packaged successfully!"
