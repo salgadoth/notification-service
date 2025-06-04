@@ -8,11 +8,12 @@ APP_YML_DIR="./email-service/src/main/resources/"
 
 echo "🚀 Packaging app for deployment..."
 
+sudo chown -R "$USER":"$USER" "$DEPLOY_DIR"
 cd "$DEPLOY_DIR"
 
 sudo mv "$APP_YML" "$APP_YML_DIR"
 
 echo "📦 Building application JAR with Maven..."
-sudo mvn clean package -Dskiptests
+mvn clean package -Dskiptests
 
 echo "✅ Service packaged successfully!"
