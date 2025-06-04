@@ -9,12 +9,12 @@ APP_YML_DIR="./email-service/src/main/resources/"
 echo "🛑 Altering permissions of deployment dir for the current user..."
 
 # Very careful when altering this, could potentially destroy whole instance.
-chown -R "$USER":"$USER" "$DEPLOY_DIR"
+sudo chown -R "$USER":"$USER" "$DEPLOY_DIR"
 cd "$DEPLOY_DIR"
 
 echo "🚀 Packaging app for deployment..."
 
-mv "$APP_YML" "$APP_YML_DIR"
+sudo cp "$APP_YML" "$APP_YML_DIR"
 
 echo "📦 Building application JAR with Maven..."
 sudo env "PATH=$PATH" mvn clean package -Dskiptests
