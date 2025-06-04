@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+SDK_CANDIDATES_HOME=/home/admin/.sdkman/candidates/
+JAVA_HOME=$SDK_CANDIDATES_HOME/java/22.0.2-oracle
+MVN_HOME=$SDK_CANDIDATES_HOME/maven/3.9.9
+export PATH=$JAVA_HOME/bin:$MVN_HOME/bin:$PATH
+
 APP_NAME="notification-service"
 DEPLOY_DIR="/deployments/$APP_NAME"
 APP_YML="application.yml"
