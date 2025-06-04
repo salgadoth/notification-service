@@ -6,10 +6,13 @@ DEPLOY_DIR="/deployments/$APP_NAME"
 APP_YML="application.yml"
 APP_YML_DIR="./email-service/src/main/resources/"
 
-echo "🚀 Packaging app for deployment..."
+echo "🛑 Altering permissions of deployment dir for the current user..."
 
-sudo chown -R "$USER":"$USER" "$DEPLOY_DIR"
+# Very careful when altering this, could potentially destroy whole instance.
+sudo chown -R "$USER":"$USER" "./*"
 cd "$DEPLOY_DIR"
+
+echo "🚀 Packaging app for deployment..."
 
 sudo mv "$APP_YML" "$APP_YML_DIR"
 
