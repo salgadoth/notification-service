@@ -1,3 +1,4 @@
+#!/bin/bash
 APP_NAME="notification-service"
 DEPLOY_DIR="/deployments/$APP_NAME"
 ECOSYSTEM_FILE="$DEPLOY_DIR/ecosystem.config.js"
