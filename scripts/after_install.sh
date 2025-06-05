@@ -11,17 +11,21 @@ DEPLOY_DIR="/deployments/$APP_NAME"
 APP_YML="application.yml"
 APP_YML_DIR="./email-service/src/main/resources/"
 
+echo "📁 Copying the application.yml file to correct dir..."
+
+sudo cp "$APP_YML" "$APP_YML_DIR"
+
 echo "🛑 Altering permissions of deployment dir for the current user..."
 
-# Very careful when altering this, could potentially destroy whole instance.
-sudo chown -R "$USER":"$USER" "$DEPLOY_DIR"
+# Very careful when altering this, could potentially do unrecoverable damage,
+# have to explicitly declare the target user, since CodeDeploy agent
+# is running on a different environment context.
+sudo chown -R "admin":"admin" "$DEPLOY_DIR"
 cd "$DEPLOY_DIR"
 
 echo "🚀 Packaging app for deployment..."
 
-sudo cp "$APP_YML" "$APP_YML_DIR"
-
 echo "📦 Building application JAR with Maven..."
-/home/admin/.sdkman/candidates/maven/3.9.9/bin/mvn clean package -Dskiptests
+$MVN_HOME/bin/mvn clean package -Dskiptests
 
 echo "✅ Service packaged successfully!"
