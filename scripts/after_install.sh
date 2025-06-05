@@ -11,6 +11,8 @@ DEPLOY_DIR="/deployments/$APP_NAME"
 APP_YML="application.yml"
 APP_YML_DIR="./email-service/src/main/resources/"
 
+cd "$DEPLOY_DIR"
+
 echo "📁 Copying the application.yml file to correct dir..."
 
 sudo cp "$APP_YML" "$APP_YML_DIR"
