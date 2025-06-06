@@ -8,10 +8,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-/**
- * Hello world!
- */
-
 @Slf4j
 @SpringBootApplication
 public class EmailServiceApplication {
