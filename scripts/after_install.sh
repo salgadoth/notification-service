@@ -28,6 +28,6 @@ cd "$DEPLOY_DIR"
 echo "🚀 Packaging app for deployment..."
 
 echo "📦 Building application JAR with Maven..."
-$MVN_HOME/bin/mvn clean package -Dskiptests
+$MVN_HOME/bin/mvn clean install -pl email-service -am
 
 echo "✅ Service packaged successfully!"
