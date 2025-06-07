@@ -7,29 +7,28 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import org.springframework.beans.factory.annotation.Value;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
 @Slf4j
+@Component
 public class RabbitService implements AutoCloseable{
-
-    @Value("${spring.rabbitmq.host}")
-    private String RABBITMQ_ADDR;
-    @Value("${spring.rabbitmq.username}")
-    private String RABBITMQ_USER;
-    @Value("${spring.rabbitmq.password}")
-    private String RABBITMQ_PASSWORD;
 
     private final Connection connection;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public RabbitService() throws IOException, TimeoutException {
+    public RabbitService(
+            @Value("${spring.rabbitmq.host}") String rabbitmqHost,
+            @Value("${spring.rabbitmq.username}") String rabbitmqUsername,
+            @Value("${spring.rabbitmq.password}") String rabbitmqPassword) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(RABBITMQ_ADDR);
-        factory.setUsername(RABBITMQ_USER);
-        factory.setPassword(RABBITMQ_PASSWORD);
+        log.info("Credentials for rabbitmq connection: {}, {}", rabbitmqUsername, rabbitmqPassword);
+        factory.setHost(rabbitmqHost);
+        factory.setUsername(rabbitmqUsername);
+        factory.setPassword(rabbitmqPassword);
         factory.setRequestedHeartbeat(30);
         connection = factory.newConnection();
     }
