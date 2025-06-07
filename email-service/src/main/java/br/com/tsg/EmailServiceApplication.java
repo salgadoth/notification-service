@@ -22,7 +22,7 @@ public class EmailServiceApplication {
         EmailServiceApplication emailServiceApplication = ctx.getBean(EmailServiceApplication.class);
 
         try {
-            RabbitService rabbitService = new RabbitService();
+            RabbitService rabbitService = ctx.getBean(RabbitService.class);
 
             RabbitConsumerWorker<RabbitMessage> rabbitConsumerWorker = new RabbitConsumerWorker<>(
                     rabbitService,
