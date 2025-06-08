@@ -36,6 +36,8 @@ public class RabbitService implements AutoCloseable{
     public <T> void registerConsumer(String queueName, Class<T> messageType, MessageHandler<T> handler) throws IOException {
         try {
             Channel channel = connection.createChannel();
+
+            channel.queueDeclare(queueName, true, false, false, null);
             channel.basicConsume(queueName, true, (consumerTag, message) -> {
                 try {
                     String body = new String(message.getBody(), StandardCharsets.UTF_8);
